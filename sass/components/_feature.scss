@@ -1,0 +1,23 @@
+@import "../abstracts/variables";
+
+.feature-box {
+  font-size: 1.8rem;
+  box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+  border-radius: 3px;
+  background-color: rgba($color-white, 0.8);
+  padding: 2rem;
+  text-align: center;
+  &__icon {
+    font-size: 4.8rem;
+    margin-bottom: 3px;
+    color: transparent;
+    background-image: linear-gradient(
+      to right,
+      $color-main-light,
+      $color-main-dark
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    display: inline-block;
+  }
+}

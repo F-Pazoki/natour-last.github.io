@@ -1,0 +1,39 @@
+@import "../abstracts/mixin";
+@import "../abstracts/variables";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 65%; // 10px
+
+  @include respond(tab-land) {
+    font-size: 56%; // 9px/16px
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; // 8px
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 12px
+  }
+}
+
+body {
+  padding: 1.6rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-main;
+  color: $color-white;
+}

@@ -1,0 +1,134 @@
+@import "../abstracts/variables";
+
+.navigation {
+  // text-align: center;
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    position: fixed;
+    top: 4.1rem;
+    right: 2.6rem;
+    z-index: 2000;
+    width: 7rem;
+    height: 7rem;
+    background-color: $color-white;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+  }
+
+  &__background {
+    background-image: radial-gradient($color-main-light, $color-main-dark);
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 5.4rem;
+    right: 3.5rem;
+    z-index: 1000;
+    transition: all 0.8s;
+  }
+
+  &__list {
+    list-style: none;
+    z-index: 1500;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-grey-light;
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 2rem;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    &:hover,
+    &:active {
+      color: $color-white;
+      transform: translatex(1.5rem);
+    }
+  }
+
+  &__input:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__input:checked ~ &__list {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__icon {
+    position: relative;
+    margin: 3.6rem 0;
+    transition: all 0.5;
+
+    &,
+    &::after,
+    &::before {
+      display: inline-block;
+      width: 3rem;
+      height: 0.2rem;
+      background-color: $color-grey;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+    }
+
+    &::after {
+      top: 1rem;
+    }
+
+    &::before {
+      top: -1rem;
+    }
+  }
+
+  &__label:hover &__icon {
+    &::after {
+      top: 1.3rem;
+    }
+
+    &::before {
+      top: -1.3rem;
+    }
+  }
+
+  &__input:checked ~ &__label &__icon {
+    background-color: transparent;
+
+    &::after {
+      top: 0.09rem;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      top: -0.09rem;
+      transform: rotate(-45deg);
+    }
+  }
+}

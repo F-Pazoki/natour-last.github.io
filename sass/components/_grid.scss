@@ -1,0 +1,46 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixin";
+
+.row {
+  max-width: $grid-width;
+  margin: 0 auto;
+  &:not(:last-child) {
+    margin-bottom: $vertical-gap;
+  }
+
+  @include clearfix;
+
+  @include respond(tab-port) {
+    max-width: 40rem;
+  }
+
+  [class^="col-"] {
+    float: left;
+    &:not(:first-child) {
+      margin-left: $horizental-gap;
+
+      @include respond(tab-port) {
+        margin-left: 0;
+        margin-top: $vertical-gap-small;
+      }
+    }
+
+    @include respond(tab-port) {
+      width: 100% !important;
+    }
+  }
+
+  .col-1-of-2 {
+    width: calc((100% - #{$horizental-gap}) / 2);
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - (2 * #{$horizental-gap})) / 3);
+  }
+
+  .col-2-of-3 {
+    width: calc(
+      2 * ((100% - (2 * #{$horizental-gap})) / 3) + #{$horizental-gap}
+    );
+  }
+}

@@ -1,0 +1,101 @@
+@import "../abstracts/variables";
+
+body {
+  font-family: "lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $color-grey;
+}
+
+.primary-heading {
+  color: $color-white;
+  text-transform: uppercase;
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 2rem;
+    animation: moveToRight 1s;
+
+    @include respond(tab-land) {
+      font-size: 4.6rem;
+      letter-spacing: 1rem;
+    }
+
+    @include respond(phone) {
+      font-size: 2.9rem;
+      letter-spacing: 0.2rem;
+    }
+  }
+
+  &--sub {
+    display: block;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 1rem;
+    animation: moveToLeft 1s;
+    @include respond(tab-land) {
+      font-size: 1.8rem;
+      letter-spacing: 0.5rem;
+    }
+    @include respond(phone) {
+      font-size: 1rem;
+      letter-spacing: 0.25rem;
+    }
+  }
+}
+
+.secondary-header {
+  font-size: 5.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  background-image: linear-gradient(
+    to right,
+    $color-main-light,
+    $color-main-dark
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: skewX(2deg) skewY(20deg) scale(1.1);
+  }
+
+  @include respond(tab-land) {
+    font-size: 3.1rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2.9rem;
+    letter-spacing: 0.2rem;
+  }
+}
+
+.tertiary-header {
+  color: $color-main;
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+
+  @include respond(tab-port) {
+    font-size: 2rem;
+  }
+
+  @include respond(phone) {
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.paragraph {
+  font-size: $default-font-size;
+  font-weight: 400;
+  &:not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+}
